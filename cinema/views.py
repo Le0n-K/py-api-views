@@ -4,7 +4,12 @@ from rest_framework import generics, mixins, status, viewsets
 from rest_framework.views import APIView
 
 from cinema.models import Movie, Actor, CinemaHall, Genre
-from cinema.serializers import MovieSerializer, ActorSerializer, CinemaHallSerializer, GenreSerializer
+from cinema.serializers import (
+    MovieSerializer,
+    ActorSerializer,
+    CinemaHallSerializer,
+    GenreSerializer
+)
 
 
 class MovieViewSet(viewsets.ModelViewSet):
