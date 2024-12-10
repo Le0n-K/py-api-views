@@ -3,11 +3,15 @@ from rest_framework import serializers
 from cinema.models import Movie, CinemaHall, Actor, Genre
 
 
-class MovieSerializer(serializers.Serializer):
+class MovieSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     title = serializers.CharField(max_length=255)
     description = serializers.CharField()
     duration = serializers.IntegerField()
+
+    class Meta:
+        model = Movie
+        fields = ["id", "title", "description", "duration"]
 
     def create(self, validated_data):
         return Movie.objects.create(**validated_data)
